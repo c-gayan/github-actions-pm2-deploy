@@ -22,6 +22,10 @@ jobs:
 
       - name: Restart Server Process
         run: |
+          # Define PM2_HOME if your PM2 processes are managed by a specific system user (e.g., root)
+          # Modify or remove this export statement as needed for your specific runner configuration
           export PM2_HOME=/home/root/.pm2
-          pm2 restart my-pnpm-app --update-env || pm2 start dist/main.js --name "my-pnpm-app" --update-env
+          
+          # Restart the existing PM2 process, or start it if it doesn't exist
+          pm2 restart node-pm2-deploy-app --update-env || pm2 start dist/main.js --name "node-pm2-deploy-app" --update-env
 

@@ -1,7 +1,7 @@
 {
-  "name": "my-pnpm-app",
+  "name": "github-actions-pm2-deploy-template",
   "version": "1.0.0",
-  "description": "Simple test project for self-hosted runner workflow",
+  "description": "A production-ready template for deploying Node.js TypeScript applications to PM2 via self-hosted GitHub Actions runners.",
   "main": "dist/main.js",
   "scripts": {
     "build": "tsc",
