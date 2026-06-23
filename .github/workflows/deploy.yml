@@ -1,0 +1,24 @@
+name: Node.js Deployment with Global pnpm
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Uses your server's globally installed pnpm 
+      # --frozen-lockfile ensures production consistency
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Application
+        run: pnpm run build --if-present
+
+      - name: Restart Server Process
+        run: pm2 restart my-pnpm-app || pm2 start dist/main.js --name "my-pnpm-app"
