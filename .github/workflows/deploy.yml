@@ -22,6 +22,6 @@ jobs:
 
       - name: Restart Server Process
         run: |
-          export PM2_HOME=/home/bee/.pm2
+          export PM2_HOME=/home/root/.pm2
           pm2 restart my-pnpm-app --update-env || pm2 start dist/main.js --name "my-pnpm-app" --update-env
 
