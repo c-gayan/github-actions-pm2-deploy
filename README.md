@@ -83,24 +83,7 @@ npm install -g pm2
    sudo ./svc.sh start
    ```
 
-### 3. Initialize the Application (First Time Setup)
-
-Before running the GitHub action, it is highly recommended to run the initial installation and PM2 startup manually on your server to avoid permission errors or initial process configuration gaps:
-
-```bash
-# Clone the repository (if not already fetched by the runner)
-git clone <your-repo-url>
-cd <your-repo-dir>
-
-# Install dependencies and build
-pnpm install
-pnpm run build
-
-# Start the application with PM2 for the first time
-pm2 start dist/main.js --name "node-pm2-deploy-app"
-```
-
-### 4. Adjust the GitHub Action Workflow
+### 3. Adjust the GitHub Action Workflow
 
 Open [deploy.yml](file:///.github/workflows/deploy.yml) and verify the following environment variable:
 
