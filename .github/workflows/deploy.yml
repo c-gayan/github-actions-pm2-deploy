@@ -21,4 +21,7 @@ jobs:
         run: pnpm --if-present run build
 
       - name: Restart Server Process
-        run: pm2 restart my-pnpm-app || pm2 start dist/main.js --name "my-pnpm-app"
+        run: |
+          export PM2_HOME=/home/bee/.pm2
+          pm2 restart my-pnpm-app --update-env || pm2 start dist/main.js --name "my-pnpm-app" --update-env
+
